@@ -1,0 +1,162 @@
+{% extends 'common.html' %}
+{% block body %}
+<h4 style='text-align:right;position:relative;padding-top:90px;align-items:right;padding-right:40px'>Welcome {{ session['name'] }}</h4>
+
+<a href="/logout" style='text-align:right;padding-top:90px;align-items:right;padding-right:30px;'>Logout</a>
+ 
+<div id="orderhead" style='align:center;height:2%;width:50%;position:center;margin-left:auto;margin-right:auto;'>
+  <h2> Order Your Favourite Dish!</h2>
+</div>
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/order.css" >
+    
+      <style>
+          
+          .col-md-3
+          {
+            display: inline-block;
+            margin-left:90px;
+            padding-bottom:30px;
+            padding-top:30px;
+          }
+          .card-img-top
+          {
+            height:300px;
+            width:332px;
+            border-radius:30px;
+          }
+          .card
+          {
+            width:25 rem;
+            border-radius:30px;
+            padding-right:0px;
+            border-width:2 rem;
+            width:120%;
+          }
+          .carousel-indicators .active 
+          {
+          background-color: blue;
+          width:70%;
+          }
+          .col-md-3 img
+          {
+           
+          }
+          body .carousel-indicator li
+          {
+            background-color: blue;
+          }
+          body .carousel-indicators{
+            bottom: 0;
+            overflow-x:hidden;
+
+          }
+          body .carousel-control-prev-icon,
+          body .carousel-control-next-icon
+          {
+          background-color: blue;
+          }
+           body .no-padding{
+           padding-left: 0,
+           padding-right: 0;
+           }
+           .container
+           {
+             max-width:max-content;
+             margin-right: 1px;
+            margin-left: 12px;
+            padding-top:30px;
+            width:92%;
+            height:100%;
+           }
+  </style>
+  </head>
+  <body>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+<div id="demo" class="carousel slide my-2" data-ride="carousel" >
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1" ></li>
+      <li data-target="#demo" data-slide-to="2" ></li>
+    </ul>
+
+    <!--Slideshow starts here -->
+    <div class="container carousel-inner no-padding">
+      <div class="carousel-item active">
+    {% for m in menu %}
+      {% set image= m[4]%}
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="card">
+            <img src="{{ url_for('static',filename=image)}}" height=90%,width=20% alt="menu" class="card-img-top">
+            <div class="card-body">
+                <b><h5 class="card-title">{{ m[1] }}</b> <br><I><h8> {{ m[2] }} INR</h8></h5>
+                <p class="card-text"><b>Ingredients:</b><br> {{ m[3] }}</p>
+
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+       </div>
+      {% endfor %}
+    </div>
+    </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <div class="card" style="width: 18rem;">
+            <img src="shop/test.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+
+        
+
+
+
+      
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ 
+</html>
+{% endblock%}

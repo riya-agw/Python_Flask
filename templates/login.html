@@ -1,0 +1,37 @@
+{% extends 'common.html' %}
+{% block body %}
+<div id='msgalert' style='padding-top:130px;padding-bottom:0px;'>
+        {% for message in get_flashed_messages() %}
+        <div id='alert' class="alert">
+        <I><b>{{ message }}</b></I>
+        </div>
+        {% endfor %}
+</div>
+<section id="contact">
+        <h1 class="h-primary center">Log In</h1>
+        <div id="contact-box">
+            <div class='msg'>{{ msg }}</div>
+            <form name='Login' action='/login'  method='post'>
+                <div class="form-group" >
+                    <label for="username">Email Address: </label>
+                    <input type="text" name="email" id="name"  placeholder="Enter your username" required>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="pwd"  placeholder="Enter your Password" required>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <table>
+                <tr><td colspan=2>
+                <button type='' class="send">Login</button>
+                <a href='/login' class='reset'>Reset</a>
+                <a href="create">New? Create an Account</a>
+                </td></tr>
+                </table>
+
+            </form>
+            <body>
+</section>
+
+{% endblock %}

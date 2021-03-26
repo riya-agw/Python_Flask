@@ -1,0 +1,59 @@
+{% extends 'common.html' %}
+<html>
+	{% block body %}
+		<div id='offers' align='center'>
+			<h1 style='padding-top:130px;'>Today's Special<br/></h1>
+				<div id='noon'>
+					SPECIAL NOON <br/>
+					(12Noon-5PM)<br/> <br/>
+					<table bgcolor='white' align='center' height=70% width=50%
+					border=1 cellspacing=0 cellpadding=10 
+					style='color:red;border-color:red'>
+						<tr>
+						<th>Menu</th>
+						<th>Price</th></tr>
+						<tr>
+						<td>Special Sizzler</td>
+						<td>Rs<strike> 250</strike> 230/-</td>
+						</tr>
+						<tr>
+						<td>Monday Special Tikka</td>
+						<td>Rs <strike>200</strike>180/-</td>
+						</tr>
+						<tr>
+						<td>Veg Biryani</td>
+						<td>Rs <strike>280</strike>250/-</td>
+						</tr>
+					</table>
+					
+			</div>
+			   <div id='eve' align='center'>
+					NIGHTY NIGHT <br/>
+					(5PM-10PM)<br/><br/>
+					<table bgcolor='white' align='center' height=70% width=50% 
+					border=1 cellspacing=0 cellpadding=10 
+					style='color:red;border-color:red'>
+						<tr>
+						<th>Menu</th>
+						<th>Price</th></tr>
+						<tr>
+						<td>Punjabi Thaali</td>
+						<td>Rs<strike> 200,</strike>180/-</td>
+						</tr>
+						<tr>
+						<td>Unlimited Meal</td>
+						<td>Rs <strike>175</strike>160/-</td>
+						</tr>
+						<tr>
+						<td>Platters</td>
+						<td>Rs <strike>250</strike>230/-</td>
+						</tr>
+					</table>
+						
+				</div>
+				<marquee bgcolor='red' height=10% scroll amount=40 behavior='alternate'
+				style='color:white;font-size:20pt;'>
+				EAT LIKE AND SMILE</marquee>
+			</div>
+	{% endblock %}
+</html>

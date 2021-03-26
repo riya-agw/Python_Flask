@@ -1,0 +1,60 @@
+{% extends 'common.html' %}
+{% block body %}
+<div id='msgalert' style='padding-top:130px;padding-bottom:0px;'>
+        {% for message in get_flashed_messages() %}
+        <div id='alert' class="alert">
+        <I><b>{{ message }}</b></I>
+        </div>
+        {% endfor %}
+</div>
+<section id="contact">
+    <h3 class="h-primary center">New Login</h3>
+    <div id="contact-box">
+        <form name='create' action='/create','/login' method='post'> 
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name"  placeholder="Enter your name" required>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email"  placeholder="Enter your email" required>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label for="phone">Mobile Number: </label>
+                <input type="phone" name="mobileno" id="phone" placeholder="Enter your phone" required>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label for="spassword">Set Password: </label>
+                <input type="password" name="spassword" id="pwd1" placeholder="Create new password" required>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <label for="cpassword">Confirm Password: </label>
+                <input type="password" name="cpassword" id="pwd2" placeholder="Confirm Password" required>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <button class="send">Create</button>
+        </form>
+    </div>
+</section>
+<script>
+    document.querySelector('.button').onclick=fucktion()
+    {
+        var spassword=document.querySelector('.spassword').value,
+            cpassword=document.querySelector('.cpassword').value,
+            email=document.querySelector('.email').value;
+
+            if(spassword=="" or email=="")
+            {
+                alert("E-mail Address or Password cannot be empty")
+            }
+            else if(spassword==cpassword)
+            {
+                alert("Password doesn't match")
+            }
+    }
+</script>
+{% endblock %}

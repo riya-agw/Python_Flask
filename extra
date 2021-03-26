@@ -1,0 +1,20 @@
+from flask_mail import Mail
+
+with open('config.json','r') as c:
+    params=json.load(c)["params"]
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT='3306',
+    MAIL_USE_SSL=True,
+    MAIL_PASSWORD=params['gmail_user'],
+    MAIL_USER=params['gmail_password']
+)
+mail=Mail(app)
+
+
+
+mail.send_message('New Message from' + name,
+                            sender=email, 
+                            recipients=params['gmail_user'], 
+                            body='Hello Lakeview Restro,' +"\n" + message +"\n" +'Contact' + mobile
+                        )
